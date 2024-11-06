@@ -16,10 +16,9 @@ public class DAO<T> {
 	@Override
 	protected void finalize() throws Throwable {
 		em.close();
-		super.finalize();
 	}
 
-	public T findByid(Class<T> clazz, Integer id) {
+	public T findById(Class<T> clazz, Integer id) {
 		return em.find(clazz, id);
 	}
 
@@ -50,11 +49,11 @@ public class DAO<T> {
 
 	public T findOne(Class<T> clazz, String sql, Object... params) {
 		// select o from users o where o.id =?0 and o.name =?1
-		TypedQuery<T> quey = em.createQuery(sql, clazz);
+		TypedQuery<T> query = em.createQuery(sql, clazz);
 		for (int i = 0; i < params.length; i++) {
-			quey.setParameter(i, params[i]);
+			query.setParameter(i, params[i]);
 		}
-		List<T> list = quey.getResultList();
+		List<T> list = query.getResultList();
 		if (list.isEmpty()) {
 			return null;
 		}
@@ -63,11 +62,11 @@ public class DAO<T> {
 
 	public List<T> findMany(Class<T> clazz, String sql, Object... params) {
 		// select o from users o where o.id =?0 and o.name =?1
-		TypedQuery<T> quey = em.createQuery(sql, clazz);
+		TypedQuery<T> query = em.createQuery(sql, clazz);
 		for (int i = 0; i < params.length; i++) {
-			quey.setParameter(i, params[i]);
+			query.setParameter(i, params[i]);
 		}
-		return quey.getResultList();
+		return query.getResultList();
 
 	}
 

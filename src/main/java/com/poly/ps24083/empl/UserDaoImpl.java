@@ -16,13 +16,10 @@ import com.poly.ps24083.enity.Users;
 import com.poly.ps24083.service.JpaProgram;
 
 public class UserDaoImpl extends DAO<Users> implements UserDao {
-	
-	
-	
 
 	@Override
 	public Users findByID(Integer id) {
-		return super.findByid(Users.class, id);
+		return super.findById(Users.class, id);
 	}
 
 	@Override
@@ -32,7 +29,7 @@ public class UserDaoImpl extends DAO<Users> implements UserDao {
 	}
 
 	@Override
-	public Users findbyUsername(String username) {
+	public Users findByUsername(String username) {
 		String sql = "SELECT o FROM Users o WHERE o.username =?0";
 		return super.findOne(Users.class, sql, username);
 	}
@@ -60,7 +57,7 @@ public class UserDaoImpl extends DAO<Users> implements UserDao {
 
 	@Override
 	public boolean delete(String usename) {
-		Users us = findbyUsername(usename);
+		Users us = findByUsername(usename);
 		us.setActive(false);
 		return super.update(us);
 	}

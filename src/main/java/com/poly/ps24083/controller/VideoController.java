@@ -76,7 +76,7 @@ public class VideoController extends HttpServlet {
 			throws ServletException, IOException {
 		Users user = (Users) session.getAttribute(SessionAtrb.Current_User);
 		Video video = videodao.findByLink(link);
-		Share share = sharedao.findUsershareVideo(user.getId(), video.getId());
+		Share share = sharedao.findUserShareVideo(user.getId(), video.getId());
 		try {
 			SendMail.sendmail(link, user.getEmail());
 		} catch (Exception e) {

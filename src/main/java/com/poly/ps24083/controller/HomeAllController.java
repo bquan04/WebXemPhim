@@ -49,7 +49,7 @@ public class HomeAllController extends HttpServlet {
 		if(genreid!=0) {
 			list = videodao.findbyTitleGenre(title, genreid,true);
 		}else {
-			list = videodao.findbyTitle(title,true);
+			list = videodao.findByTitle(title,true);
 		}
 		if(list.size()>0) {
 			request.setAttribute("name",  title + "\n <i class='bx bx-search'></i>");
@@ -71,7 +71,7 @@ public class HomeAllController extends HttpServlet {
 		List<Video> list;
 		List<Video> vieos;
 		if(genreid==0) {
-			list = videodao.findbyTitle(title,true);
+			list = videodao.findByTitle(title,true);
 			maxpage = (int)Math.ceil(list.size()/(double)pageMaxsize);
 			vieos = videoshare.pageVideoNumberTitle(pagenumber, pageMaxsize, title);
 		}else {

@@ -1,6 +1,5 @@
 package com.poly.ps24083.enity;
 
-
 import java.util.Date;
 import java.util.List;
 
@@ -13,9 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-
-
-
 
 @Entity
 @Table(name = "VIDEO", uniqueConstraints = { @UniqueConstraint(columnNames = { "idgenre" }) })

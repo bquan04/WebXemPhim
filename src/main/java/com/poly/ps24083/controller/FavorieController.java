@@ -71,7 +71,7 @@ public class FavorieController extends HttpServlet {
 	private void dofavorite(HttpSession session, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Users user = (Users) session.getAttribute(SessionAtrb.Current_User);
-		List<Video> list = videodao.findAllVideoofUserfavorited(user.getId(), true);
+		List<Video> list = videodao.findAllVideoOfUserFavorited(user.getId(), true);
 		List<Video> listshare = videoshare.findUsersToShare(user.getId());
 		request.setAttribute("user", user);
 		request.setAttribute("list", list);

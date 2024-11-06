@@ -13,7 +13,7 @@ public class VideoImlpl extends DAO<Video> implements VideoDao {
 
 	@Override
 	public Video findById(Integer id) {
-		return super.findByid(Video.class, id);
+		return super.findById(Video.class, id);
 	}
 
 	@Override
@@ -51,23 +51,23 @@ public class VideoImlpl extends DAO<Video> implements VideoDao {
 	// hiển thị nhưng video mà người dùng đó đã share
 	@Override
 	public List<Video> findUsersToShare(Integer usid) {
-		String sql = "SELECT o.video  FROM Share o WHERE o.user.id = ?0 ORDER BY o.sharedate DESC ";
+		String sql = "SELECT o.video FROM Share o WHERE o.user.id = ?0 ORDER BY o.sharedate DESC ";
 		return super.findMany(Video.class, sql, usid);
 	}
 
 	@Override
 	public List<Video> findvideoVip(boolean vip) {
-		String sql = "SELECT o  FROM Video o WHERE o.vip = ?0 ";
+		String sql = "SELECT o FROM Video o WHERE o.vip = ?0 ";
 		return super.findMany(Video.class, sql, vip);
 	}
 
 	public List<Video> findVideotoUserReport(Integer usid) {
-		String sql = "SELECT o.video  FROM Report o WHERE o.user.id = ?0  ";
+		String sql = "SELECT o.video FROM Report o WHERE o.user.id = ?0  ";
 		return super.findMany(Video.class, sql, usid);
 	}
 	
 	public List<Video> findVideoGenre(Integer videogenreid){
-		String sql = "SELECT o  FROM Video o WHERE o.genre.id = ?0  ";
+		String sql = "SELECT o FROM Video o WHERE o.genre.id = ?0  ";
 		TypedQuery<Video> query = em.createQuery(sql,Video.class);
 		query.setParameter(0, videogenreid);
 		query.setMaxResults(4);

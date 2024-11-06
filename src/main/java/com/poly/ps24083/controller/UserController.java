@@ -80,7 +80,7 @@ public class UserController extends HttpServlet {
 			newUs.setAdmin(false);
 			newUs.setAvatar("avt.png");
 			newUs.setActive(true);
-			if(userdao.findbyUsername(newUs.getUsername())!=null) {
+			if(userdao.findByUsername(newUs.getUsername())!=null) {
 				request.setAttribute("errorUsername", "Username đã tồn tại");
 				request.setAttribute("user", newUs);
 				request.getRequestDispatcher("/views/jsp/register.jsp").forward(request, response);

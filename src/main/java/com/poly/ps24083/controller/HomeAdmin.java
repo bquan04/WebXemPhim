@@ -121,7 +121,7 @@ public class HomeAdmin extends HttpServlet {
 		if (genreid > 0) {
 			list = videodao.findbyTitleGenre(title, genreid, active);
 		} else {
-			list = videodao.findbyTitle(title, active);
+			list = videodao.findByTitle(title, active);
 		}
 		if (list.size() > 0) {
 			request.setAttribute("name", title + "\n <i class='bx bx-search'></i>");

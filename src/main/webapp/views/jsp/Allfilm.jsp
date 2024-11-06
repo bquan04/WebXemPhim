@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 <div class="video-banner">
-	<iframe width="90%" height="560px" style="border-radius: 20px"
+	<iframe width="100%" height="560px" style="border-radius: 20px"
 		src="https://www.youtube.com/embed/DE8Z1IUxY54?si=ypWXhDbN9h25Gy76" 
 		title="YouTube video player" frameborder="0"
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -10,7 +10,7 @@
 </div>
 <div style="width: 100%; margin: 10px auto;">
 	<form action="HomeAllController"
-		style="width: 40%; display: flex; justify-content: space-around;; margin: 0 auto;">
+		style="width: 40%; display: flex; justify-content: space-around; margin: 0 auto;">
 		<div style="display: flex; width: 25%; justify-content: center;">
 			<select class="btn btn-dark" name="genres"
 				style="width: 100%; text-align: left;">

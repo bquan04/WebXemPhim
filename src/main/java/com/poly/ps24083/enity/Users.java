@@ -11,130 +11,130 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="USERS")
+@Table(name = "USERS")
 public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private Integer id;
-		private String username;
-		private String pass;
-		private String email;
-		private String fullname;
-		private Date birth;
-		private Date starday   = new Date();
-		private String avatar;
-		private Boolean admin;
-		private Boolean active;
-		private Integer vip;
-		
-		@OneToMany(mappedBy = "user")
-		List<Favorite> favorites;
-		
-		@OneToMany(mappedBy = "user")
-		List<Share> shares;
+	private Integer id;
+	private String username;
+	private String pass;
+	private String email;
+	private String fullname;
+	private Date birth;
+	private Date starday = new Date();
+	private String avatar;
+	private Boolean admin;
+	private Boolean active;
+	private Integer vip;
 
-		public Integer getId() {
-			return id;
-		}
+	@OneToMany(mappedBy = "user")
+	List<Favorite> favorites;
 
-		public void setId(Integer id) {
-			this.id = id;
-		}
+	@OneToMany(mappedBy = "user")
+	List<Share> shares;
 
-		public String getUsername() {
-			return username;
-		}
+	public Integer getId() {
+		return id;
+	}
 
-		public void setUsername(String username) {
-			this.username = username;
-		}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-		public String getPass() {
-			return pass;
-		}
+	public String getUsername() {
+		return username;
+	}
 
-		public void setPass(String pass) {
-			this.pass = pass;
-		}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-		public String getEmail() {
-			return email;
-		}
+	public String getPass() {
+		return pass;
+	}
 
-		public void setEmail(String email) {
-			this.email = email;
-		}
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
 
-		public String getFullname() {
-			return fullname;
-		}
+	public String getEmail() {
+		return email;
+	}
 
-		public void setFullname(String fullname) {
-			this.fullname = fullname;
-		}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-		public Date getBirth() {
-			return birth;
-		}
+	public String getFullname() {
+		return fullname;
+	}
 
-		public void setBirth(Date birth) {
-			this.birth = birth;
-		}
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
 
-		public Date getStarday() {
-			return starday;
-		}
+	public Date getBirth() {
+		return birth;
+	}
 
-		public void setStarday(Date starday) {
-			this.starday = starday;
-		}
+	public void setBirth(Date birth) {
+		this.birth = birth;
+	}
 
-		public String getAvatar() {
-			return avatar;
-		}
+	public Date getStarday() {
+		return starday;
+	}
 
-		public void setAvatar(String avatar) {
-			this.avatar = avatar;
-		}
+	public void setStarday(Date starday) {
+		this.starday = starday;
+	}
 
-		public Boolean getAdmin() {
-			return admin;
-		}
+	public String getAvatar() {
+		return avatar;
+	}
 
-		public void setAdmin(Boolean admin) {
-			this.admin = admin;
-		}
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
 
-		public Boolean getActive() {
-			return active;
-		}
+	public Boolean getAdmin() {
+		return admin;
+	}
 
-		public void setActive(Boolean active) {
-			this.active = active;
-		}
+	public void setAdmin(Boolean admin) {
+		this.admin = admin;
+	}
 
-		public Integer getVip() {
-			return vip;
-		}
+	public Boolean getActive() {
+		return active;
+	}
 
-		public void setVip(Integer vip) {
-			this.vip = vip;
-		}
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
 
-		public List<Favorite> getFavorites() {
-			return favorites;
-		}
+	public Integer getVip() {
+		return vip;
+	}
 
-		public void setFavorites(List<Favorite> favorites) {
-			this.favorites = favorites;
-		}
+	public void setVip(Integer vip) {
+		this.vip = vip;
+	}
 
-		public List<Share> getShares() {
-			return shares;
-		}
+	public List<Favorite> getFavorites() {
+		return favorites;
+	}
 
-		public void setShares(List<Share> shares) {
-			this.shares = shares;
-		}
-		
+	public void setFavorites(List<Favorite> favorites) {
+		this.favorites = favorites;
+	}
+
+	public List<Share> getShares() {
+		return shares;
+	}
+
+	public void setShares(List<Share> shares) {
+		this.shares = shares;
+	}
+
 }

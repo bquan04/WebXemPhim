@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <footer class="py-2 footerbg" style="text-align: center; width: 95%; margin: 0 auto;">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    <footer class="py-2 footerbg" style="text-align: center; width: 100%; margin: 0 auto; border-radius: 0;">
         <div class="row">
             <div class="col-md-12 mb-3">
                 <h5>Thông Tin Chi Tiết</h5>

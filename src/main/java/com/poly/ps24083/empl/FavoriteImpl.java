@@ -12,7 +12,7 @@ import com.poly.ps24083.enity.Video;
 public class FavoriteImpl extends DAO<Video> implements FavoriteDao {
 
 	// lấy ra lít video của người dùng yêu thích hoặc không
-	public List<Video> findAllVideoofUserfavorited(Integer usid, boolean active) {
+	public List<Video> findAllVideoOfUserFavorited(Integer usid, boolean active) {
 		String sql = "SELECT o.video FROM Favorite o WHERE o.user.id = ?0 AND o.active = ?1 "
 				+ "ORDER BY o.likedate DESC";
 		return super.findMany(Video.class, sql, usid, active);
@@ -42,14 +42,14 @@ public class FavoriteImpl extends DAO<Video> implements FavoriteDao {
 
 	// lấy ra list video theo title của ngươi dùng yêu thích khi tìm kiếm
 	@Override
-	public List<Video> findTitleVideoofUserfavorited(Integer usid, String titleVideo) {
+	public List<Video> findTitleVideoOfUserFavorited(Integer usid, String titleVideo) {
 		String sql = "SELECT  f.video FROM Favorite f WHERE f.user.id = ?0 AND f.active = 1 AND f.video.title LIKE ?1";
 		return super.findMany(Video.class, sql, usid, "%" + titleVideo + "%");
 	}
 
 	// lấy ra list video trong khoảng thời gian
 	@Override
-	public List<Video> findVideoInRangeofUserfavorited(Integer usid, Date min, Date max) {
+	public List<Video> findVideoInRangeOfUserFavorited(Integer usid, Date min, Date max) {
 		String sql = "SELECT   o.video FROM Favorite o WHERE  " + "o.user.id = ?0 AND o.active = 1 "
 				+ "And o.likedate BETWEEN ?1 AND ?2";
 		return super.findMany(Video.class, sql, usid, min, max);
@@ -64,7 +64,7 @@ public class FavoriteImpl extends DAO<Video> implements FavoriteDao {
 	}
 
 	// lấy ra list video theo title
-	public List<Video> findbyTitle(String title, boolean active) {
+	public List<Video> findByTitle(String title, boolean active) {
 		String sql = "SELECT  f  FROM Video f  WHERE  f.active = ?0 AND f.title LIKE ?1";
 		return super.findMany(Video.class, sql, active, "%" + title + "%");
 	}
@@ -74,7 +74,7 @@ public class FavoriteImpl extends DAO<Video> implements FavoriteDao {
 		return super.findMany(Video.class, sql, active, "%" + title + "%", genreid);
 	}
 	
-	public List<Video> findByview(){
+	public List<Video> findByView(){
 		String sql = "SELECT o From  Video o  ORDER BY o.views DESC";
 		return super.findMany(Video.class, sql);
 	}

@@ -12,7 +12,7 @@ import jakarta.mail.internet.MimeMessage;
 public class SendMail {
 	public static void sendmail(String link, String emailClident) {
 		try {
-			String username = "truongnguenlqm@gmail.com";
+			String username = "bquan9204@gmail.com";
 			String pass = "jsopvjrpqrfacjny";
 
 			Properties prop = new Properties();
@@ -33,7 +33,7 @@ public class SendMail {
 //			message.addRecipients(Message.RecipientType.CC, InternetAddress.parse(infor.getCc()));
 //			message.addRecipients(Message.RecipientType.BCC, InternetAddress.parse(infor.getBcc()));
 
-			message.setSubject("Nội Dung Chia Sẻ Từ Action Movie");
+			message.setSubject("Nội Dung Chia Sẻ Từ Animed");
 			message.setText("https://youtu.be/"+link);
 			Transport.send(message);
 		} catch (Exception e) {

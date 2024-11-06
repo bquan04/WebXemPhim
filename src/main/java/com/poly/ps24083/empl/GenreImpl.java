@@ -11,8 +11,8 @@ public class GenreImpl extends DAO<GenreVideo> {
 		return super.findAll(GenreVideo.class, false);
 	}
 	
-	public GenreVideo findbyid(Integer id) {
-		return super.findByid(GenreVideo.class, id);
+	public GenreVideo findbyId(Integer id) {
+		return super.findById(GenreVideo.class, id);
 	}
 	
 	

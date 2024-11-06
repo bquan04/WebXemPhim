@@ -7,7 +7,7 @@ import com.poly.ps24083.enity.Users;
 public interface UserDao {
 		public Users findByID(Integer id) ;
 		public Users findByEmail(String email);
-		public Users findbyUsername(String username);
+		public Users findByUsername(String username);
 		public Users findByUser(String user, String password);
 		public List<Users> findAll();
 		public List<Users> findPage(int pageNumber, int pageSize);

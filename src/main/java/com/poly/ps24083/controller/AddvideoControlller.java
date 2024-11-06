@@ -104,7 +104,7 @@ public class AddvideoControlller extends HttpServlet {
 		if (descript == null) {
 			descript = (String) request.getSession().getAttribute("des");
 		}
-		GenreVideo genres = genre.findbyid(idgenre);
+		GenreVideo genres = genre.findbyId(idgenre);
 		try {
 			BeanUtils.populate(video, request.getParameterMap());
 			video.setDescriptions(descript);

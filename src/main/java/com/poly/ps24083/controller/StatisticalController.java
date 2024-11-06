@@ -106,7 +106,7 @@ public class StatisticalController extends HttpServlet {
 
 	private void doVideoView(String path, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<Video> list = videodao.findByview();
+		List<Video> list = videodao.findByView();
 		request.setAttribute("view", path);
 		request.setAttribute("listVieoView", list);
 		request.getRequestDispatcher("/views/jsp/statistical.jsp").forward(request, response);
@@ -189,7 +189,7 @@ public class StatisticalController extends HttpServlet {
 			e.printStackTrace();
 		}
 		if (iduser != 0) {
-			list = videodao.findAllVideoofUserfavorited(iduser, true);
+			list = videodao.findAllVideoOfUserFavorited(iduser, true);
 		} else {
 			list = videoshare.findAll();
 		}

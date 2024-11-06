@@ -24,12 +24,15 @@ public interface HttpFilter extends Filter {
 		HttpServletResponse response = (HttpServletResponse) res;
 		doFilter(request, response, chain);
 	}
-	default void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
+
+	default void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+
 	}
+
 	@Override
 	default void init(FilterConfig filterConfig) throws ServletException {
-		
+
 	}
-	
+
 }

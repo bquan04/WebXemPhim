@@ -27,7 +27,7 @@
 }
 
 .film {
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -92,7 +92,7 @@ h2 {
 </head>
 <body   >
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="apps" id="actionMovie" style="width: 100%">
+	<div class="apps container" id="actionMovie" style="width: 100%">
 			<jsp:include page="Allfilm.jsp"></jsp:include>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>

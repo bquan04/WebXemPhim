@@ -14,23 +14,23 @@ import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name ="FAVORITE",uniqueConstraints = {
-		@UniqueConstraint(columnNames = {"userid","videoid"})
-})
+@Table(name = "FAVORITE", uniqueConstraints = { @UniqueConstraint(columnNames = { "userid", "videoid" }) })
 public class Favorite {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id ;
-	
-	@ManyToOne @JoinColumn(name="userid", referencedColumnName = "id")
+	private Integer id;
+
+	@ManyToOne
+	@JoinColumn(name = "userid", referencedColumnName = "id")
 	Users user;
-	
-	@ManyToOne @JoinColumn(name="videoid", referencedColumnName = "id")
+
+	@ManyToOne
+	@JoinColumn(name = "videoid", referencedColumnName = "id")
 	Video video;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date likedate = new Date();
-	
+
 	private Boolean active;
 
 	public Integer getId() {
@@ -72,10 +72,5 @@ public class Favorite {
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
-	
-	
-	
-	
-	
-	
+
 }
