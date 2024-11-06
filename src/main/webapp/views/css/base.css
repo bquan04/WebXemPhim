@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 62.5%;
+}
+
+:root {
+    --white-color: #fff;
+    --primary-color: #f52549;
+    --common-background-color: #f5f5f5;
+    --header-height: 86px;
+    --home-products-item-height: 307.5px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    } 
+    to {
+        opacity: 1;
+    }
+}
+
+/* Button style */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 42px;
+    width: 42px;
+}
+
+.btn:hover {
+    background-color: var(--common-background-color);
+}
