@@ -1,77 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
-<style>
-.titlewep {
-	font-size: 2rem;
-	color: #66347F;
-	font-weight: bold;
-	font-style: italic;
-}
 
-.navs a {
-	font-size: 15px;
-}
-
-.navs a:hover {
-	transform: scale(1.05);
-	transition: all linear 0.5s;
-	color: #66347F;
-}
-/* pay */
-.contentdialog {
-	width: auto;
-	width: 1000px;
-	margin: 0;
-	border-radius: 10px;
-}
-
-.pay {
-	display: flex;
-	justify-content: space-around;
-	width: 100%;
-}
-
-.pay>div {
-	text-align: center;
-	padding: 10px;
-	background-color: rgba(0, 0, 0, 0.1);
-	border-radius: 20px;
-	margin: 10px;
-	width: 45%;
-}
-
-.pay>div:hover {
-	transform: scale(1.02);
-	transition: all linear .5s;
-	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-		rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-	background-color: rgba(0, 0, 0, 0.04);
-}
-
-.pay h3 {
-	margin-bottom: 10px;
-}
-
-.pay a {
-	border-radius: 10px;
-}
-</style>
 <div class="onhead">
 	<c:url var="app" value="/app"></c:url>
-	<div class="header"
-		style="background-color: rgba(0, 0, 0, 0.1); height: auto;">
+	<div class="header" style="background-color: rgba(0, 0, 0, 0.1); height: auto;">
 		<div class="container d-flex flex-wrap"
 			style="justify-content: space-between; text-align: center; margin: 0px auto; padding: 10px;">
-			<a href="index"
-				class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-				<svg class="bi me-2" width="40" height="32">
-                	<use xlink:href="#bootstrap"></use>
-                </svg> 
-                <img alt="" src="views/img/logo__img.png" style = "width: 180px">
+			<a href="index" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+				<img alt="" src="views/img/logo__img.png"
+				style="width: 180px">
 			</a>
-			<div
-				style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+			<!-- Header search -->
+			<div style="display: flex; width: 400px;">
+				<form action="HomeAllController" 
+					style="display: flex; justify-content: space-around; margin: 0 auto;">
+					<div style="display: flex; width: 25%; justify-content: center;">
+						<select class="btn btn-dark" name="genres"
+							style="width: 100%; text-align: left;">
+							<option value="0">Tất Cả</option>
+							<option value="1">Phim Hành Động</option>
+							<option value="2">Phim Tình Cảm</option>
+							<option value="3">Phim Kinh Dị</option>
+							<option value="4">Phim Khoa Học Viễn Tưởng</option>
+							<option value="5">Phim Hoạt Hình</option>
+						</select>
+					</div>
+					<div style="display: flex; width: 70%; justify-content: center;">
+						<input type="search" placeholder="Search" class="form-control"
+							style="width: 60%; margin-right: 10px;" name="search">
+						<button class="btn btn-dark" style="width: 30%;">Tìm</button>
+					</div>
+				</form>
+			</div>
+			<!-- End Header search -->
+			<!-- User avt -->
+			<div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
 				<c:choose>
 					<c:when test="${ not empty sessionScope.currentUser.avatar }">
 						<img src="/Web-OOP1312/images/${sessionScope.currentUser.avatar }"
@@ -89,12 +53,13 @@
 										Welcome, ${sessionScope.currentUser.fullname}
 								</c:when>
 						<c:otherwise>
-										Đăng Nhập
-								</c:otherwise>
+							Đăng Nhập
+						</c:otherwise>
 					</c:choose>
 				</h5>
 			</div>
 		</div>
+		
 		<div class="rows bg-light">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light"
 				style="margin-left: 10%;">
@@ -116,47 +81,46 @@
 										class='bx bxs-heart'></i>Yêu Thích</a></li>
 								<li class="nav-item"><a class="nav-link" href="logout"
 									style="color: #D21312; cursor: pointer;" class='bx bxs-heart'>
-										<i class='bx bxs-log-out'></i>Đăng Xuất
-								</a></li>
+										<i class='bx bxs-log-out'></i>Đăng Xuất</a>
+								</li>
 								<li class="nav-item"><a class="nav-link" href="index"
 									href="index"><span><i class='bx bxs-film'></i></span>Phim
-										Truyện </a></li>
+										Truyện </a>
+								</li>
 							</c:when>
 							<c:when test="${ sessionScope.currentUser.admin ==true}">
 								<li class="nav-item"><a class="nav-link" href="MangerVideo"
 									style="color: green; cursor: pointer;" class='bx bxs-heart'><i
 										class='bx bxs-book-content'></i>Quản Lý Phim</a></li>
-								<li class="nav-item"><a class="nav-link" href="MangerAccount"
-									style="color: #5F264A; cursor: pointer;" class='bx bxs-heart'><i class='bx bxs-user-account'></i>Quản Lý Tài Khoản</a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="MangerAccount" style="color: #5F264A; cursor: pointer;"
+									class='bx bxs-heart'><i class='bx bxs-user-account'></i>Quản Lý Tài Khoản</a>
+								</li>
 								<li class="nav-item"><a class="nav-link"
 									href="VideoFavorite" style="color: #F7D060; cursor: pointer;"
 									class='bx bxs-heart'><i class='bx bxs-book-content'></i>Thống
 										Kê</a></li>
-								<li class="nav-item"><a class="nav-link" href="Favorite"
-									style="color: #D21312; cursor: pointer;" class='bx bxs-heart'><i
-										class='bx bxs-heart'></i>Yêu Thích</a></li>
+								<li class="nav-item"><a class="nav-link" href="Favorite" style="color: #D21312; cursor: pointer;" class='bx bxs-heart'>
+									<i class='bx bxs-heart'></i>Yêu Thích</a>
+								</li>
 								<li class="nav-item"><a class="nav-link" href="logout"
-									style="cursor: pointer;" class='bx bxs-heart'> <i
-										class='bx bxs-log-out'></i>Đăng Xuất
-								</a></li>
+									style="cursor: pointer;" class='bx bxs-heart'> 
+									<i class='bx bxs-log-out'></i>Đăng Xuất</a>
+								</li>
 								<li class="nav-item"><a class="nav-link" href="index"
-									href="index"><span><i class='bx bxs-film'></i></span>Phim
-										Truyện </a></li>
+									href="index"><span><i class='bx bxs-film'></i></span>Phim Truyện </a>
+								</li>
 							</c:when>
 							<c:otherwise>
 								<li class="nav-item"><a class="nav-link" href="login"><span><i
 											class='bx bxs-contact'></i></span>Đăng Nhập</a></li>
 								<li class="nav-item"><a class="nav-link" href="register"
 									href=""><span><i class='bx bxs-log-in'></i></span>Đăng Ký</a></li>
-								<li class="nav-item"><a class="nav-link" href="index"
-									href="index"><span><i class='bx bxs-film'></i></span>Phim
-										Truyện </a></li>
+								<li class="nav-item"><a class="nav-link" href="index" href="index">
+									<span><i class='bx bxs-film'></i></span>Phim Truyện </a>
+								</li>	
 							</c:otherwise>
 						</c:choose>
-
-
-
-
 
 					</ul>
 				</div>

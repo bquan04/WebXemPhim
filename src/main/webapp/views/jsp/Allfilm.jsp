@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
+<%@ include file="/common/cssboostrap.jsp"%>
+
 <div class="video-banner">
 	<iframe width="100%" height="560px" style="border-radius: 20px"
 		src="https://www.youtube.com/embed/DE8Z1IUxY54?si=ypWXhDbN9h25Gy76" 
@@ -8,28 +10,10 @@
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 		allowfullscreen></iframe>
 </div>
-<div style="width: 100%; margin: 10px auto;">
-	<form action="HomeAllController"
-		style="width: 40%; display: flex; justify-content: space-around; margin: 0 auto;">
-		<div style="display: flex; width: 25%; justify-content: center;">
-			<select class="btn btn-dark" name="genres"
-				style="width: 100%; text-align: left;">
-				<option value="0">Tất Cả</option>
-				<option value="1">Phim Hành Động</option>
-				<option value="2">Phim Tình Cảm</option>
-				<option value="3">Phim Kinh Dị</option>
-				<option value="4">Phim Khoa Học Viễn Tưởng</option>
-				<option value="5">Phim Hoạt Hình</option>
-			</select>
-		</div>
-		<div style="display: flex; width: 70%; justify-content: center;">
-			<input type="search" placeholder="Search" class="form-control"
-				style="width: 60%; margin-right: 10px;" name="search">
-			<button class="btn btn-dark" style="width: 30%;">Tìm</button>
-		</div>
-	</form>
-</div>
-<h2 id="action">Phim Hành Động</h2>
+
+<h2 id="action">
+	<a href="HomePageController?page=1&genre=1" style = "text-decoration: none; display: block;">Phim Hành Động</a>
+</h2>
 <c:url var="app" value="/app" />
 <div class="row film">
 	<c:choose>
@@ -37,9 +21,7 @@
 			<c:forEach var="item" items="${filmaction }">
 				<div class="col-md-3">
 					<div class="card">
-						<img src="images/${item.getPoster() }"
-							class="card-img-top"
-							style="border-radius: 20px 20px 0 0; height: 250px;" alt="...">
+						<img src="images/${item.getPoster() }" class="card-img-top" alt="...">
 						<div class="card-body">
 							<h5 class="card-title"
 								style="white-space: nowrap; overflow: hidden;">${item.getTitle() }</h5>
@@ -51,7 +33,7 @@
 									${item.getTotalShares()}</span>
 							</div>
 							<a
-								href='<c:url value="/Video?action=watch&id=${ item.getLink()}"></c:url>'
+								href='<c:url value="/Video?action=watch&id=${item.getLink()}"></c:url>'
 								class="btn btn-dark"> <span><i
 									class='bx bx-play-circle'></i></span> Xem Ngay
 							</a>
@@ -62,10 +44,7 @@
 		</c:when>
 	</c:choose>
 </div>
-<div class="line">
-	<a href="HomePageController?page=1&genre=1"><i
-		class='bx bx-chevron-down'></i></a>
-</div>
+
 <h2 id="love">Phim Tình Cảm</h2>
 <div class="row film">
 	<c:choose>

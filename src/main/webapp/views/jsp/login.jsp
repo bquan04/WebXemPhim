@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
+<%@ include file="/common/cssboostrap.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,23 +11,9 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <%@ include file="/common/cssboostrap.jsp"%>
-<style type="text/css">
-		label {
-	font-weight: bold;
-	
-}
-	form{
-			width: 60%;
-			margin: auto auto;
-			height: 350px;
-	}
-	h2{
-		text-align: center;
-	}
-</style>
+
 </head>
 <body>
-
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="apps" id="actionMovie" style="width: 100%">
 		<div class="container" style="width: 80%; margin: 30px auto;">
@@ -34,11 +21,10 @@
 		<hr>
 			<form action="login" method="post" >
 				<div class="form-group valid">
-					<label for="exampleInputEmail1" >Tên
-						Tài Khoản</label> <input type="text" class="form-control" value="${user}" name="username"
+					<label for="exampleInputEmail1" >Tên Tài Khoản</label> 
+						<input type="text" class="form-control" value="${user}" name="username"
 						id="exampleInputEmail1" placeholder="Nhập tên tài khoản" required>
 					<span></span>
-
 				</div>
 				<div class="form-group valid">
 					<label >Mật Khẩu</label>
@@ -62,18 +48,16 @@
 				</div>
 				<div class="form-group form-check">
 					<input type="checkbox" name="checklogin" checked="checked" value="true" class="form-check-input" id="exampleCheck1">
-					<label for="exampleCheck1" >Nhớ
-						tài khoản?</label>
+					<label for="exampleCheck1" >Nhớ tài khoản?</label>
 				</div>
 				<hr>
 
 				<div class="controller" style="text-align: center;">
-					<button class="btn btn-dark" >Đăng
-						Nhập</button>
+					<button class="btn btn-dark" >Đăng Nhập</button>
 				</div>
 
 			</form>
-		<p style="text-align: center; color: red">${message}</p>
+			<p style="text-align: center; color: red">${message}</p>
 		</div>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>

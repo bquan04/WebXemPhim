@@ -51,12 +51,12 @@ public class UserController extends HttpServlet {
 			throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		boolean svaecookie = Boolean.parseBoolean(request.getParameter("checklogin"));
+		boolean savecookie = Boolean.parseBoolean(request.getParameter("checklogin"));
 		Users user = userdao.findByUser(username, password);
 
 		if (user != null) {
-			session.setAttribute(SessionAtrb.Current_User, user);
-			if (svaecookie) {
+			session.setAttribute(SessionAtrb.Current_User, user); 
+			if (savecookie) {
 				CookieUtils.add(username, password, 1, response);
 			} else {
 				CookieUtils.add(username, password, 0, response);
@@ -93,7 +93,6 @@ public class UserController extends HttpServlet {
 					doRegister(request, response);
 				}
 			}
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();

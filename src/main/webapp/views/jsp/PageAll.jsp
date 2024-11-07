@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Action Moview</title>
+<title>Animed</title>
 <%@ include file="/common/cssboostrap.jsp"%>
 </head>
 
@@ -25,7 +25,7 @@
 									<img src="images/${item.getPoster() }"
 										class="card-img-top"
 										style="border-radius: 20px 20px 0 0; height: 250px;" alt="...">
-									<div class="card-body">
+								<div class="card-body">
 										<h5 class="card-title"
 											style="white-space: nowrap; overflow: hidden;">${item.getTitle() }</h5>
 										<div
@@ -36,8 +36,7 @@
 										</div>
 										<c:set var="idgenre" value="${item.getGenre().getId()}"
 											scope="session" />
-										<a
-											href='<c:url value="/Video?action=watch&id=${ item.getLink()}"></c:url>'
+										<a href='<c:url value="/Video?action=watch&id=${ item.getLink()}"></c:url>'
 											class="btn btn-dark"> <span><i
 												class='bx bx-play-circle'></i></span> Xem Ngay
 										</a>
@@ -48,7 +47,7 @@
 					</c:when>
 				</c:choose>
 			</div>
-			<c:if test="${number >8}">
+			<c:if test="${number > 8}">
 					<div class="controller" style="text-align: center;">
 				<div class="btn-group" role="group" aria-label="Basic example">
 					<c:if test="${curentpage ==1}">

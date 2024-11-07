@@ -1,38 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
+<%@ include file="/common/cssboostrap.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Register - Action Movie</title>
-<%@ include file="/common/cssboostrap.jsp"%>
-
-<style type="text/css">
-label {
-	font-weight: bold;
-}
-
-form {
-	width: 60%;
-	margin: auto auto;
-	height: 800px;
-}
-
-h2 {
-	text-align: center;
-}
-
-.error {
-	font-size: 10px;
-	color: red;
-}
-
-.forms span {
-	color: red;
-	font-size: 12px;
-}
-</style>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
